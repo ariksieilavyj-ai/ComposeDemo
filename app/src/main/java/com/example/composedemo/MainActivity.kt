@@ -34,6 +34,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeDemoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    DemoScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -49,11 +50,13 @@ fun DemoText(message: String, fontSize: Float){
     )
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun DemoTextPreview(){
     ComposeDemoTheme{
-        DemoText(message = "Welcome to Android", fontSize = 12f)
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            DemoScreen(modifier = Modifier.padding(innerPadding))
+        }
     }
 }
 
@@ -76,7 +79,7 @@ fun DemoScreen(modifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         DemoText(message = "Welcome to Compose", fontSize = sliderPosition)
         Spacer(modifier = Modifier.height(150.dp))
