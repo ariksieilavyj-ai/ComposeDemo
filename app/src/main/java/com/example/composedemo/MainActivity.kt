@@ -46,3 +46,13 @@ fun DemoTextPreview(){
         DemoText(message = "Welcome to Android", fontSize = 12f)
     }
 }
+
+@Composable
+fun DemoSlider(sliderPosition: Float, onPositionChange: (Float) -> Unit ) {
+    Slider(
+        modifier = Modifier.padding(10.dp),
+        valueRange = 20f..38f,
+        value = sliderPosition,
+        onValueChange = onPositionChange
+    )
+}
